@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	  <link rel="icon" href="{{asset('bundles/mhamedCecilia/images/logo.jpg')}}">
+	<!-- fonts -->
+    <link href="{{asset('bundles/mhamedCecilia/css/family=Kaushan+Script.css')}}" rel='stylesheet' type='text/css'>
+    <link href="{{asset('bundles/mhamedCecilia/css/family=Montserrat.css')}}" rel="stylesheet" type="text/css">
+
+
+	
+
+    <title>Dr Cecilia</title>
+
+    <!-- Bootstrap Core CSS -->
+   <link rel="stylesheet" href="{{asset('bundles/mhamedCecilia/css/bootstrap.min.css')}}">
+   
+    <!-- Custom CSS -->
+    <link href="{{asset('bundles/mhamedCecilia/css/conseils stylesheet.css')}}" rel="stylesheet">
+
+  
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{path('mhamed_cecilia_homepage')}}" id="ddr">Dr. Cecilia</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav pull-right">
+                    <!--<li>
+                        <a href="#about">About</a>
+                    </li>
+                    <li>
+                        <a href="#services">Services</a>
+                    </li>-->
+					<li>
+                        <a href="login page.html" id="navbarLogin">Log in</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+	
+<div id="masthead">  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1>Medical advise
+          <p class="lead">Hope our advise will help you to be healthy</p>
+        </h1>
+      </div>
+      
+    </div> 
+  </div><!-- /container -->
+</div>
+	
+
+<div class="container">
+  <div class="row">
+    
+    <div class="col-md-12"> 
+      
+      <div class="panel">
+        <div class="panel-body">
+        
+          
+          <!--/stories-->
+      {% for adv in theAdvise %}
+		  <div class="row">    
+            <br>
+            <div class="col-md-2 col-sm-3 text-center">
+              <a class="story-img" href="{{path('mhamed_cecilia_advise_article',{'id':adv.getID()})}}"><img src="{{asset('bundles/mhamedCecilia/images/'~adv.getImage()~'')}}" style="width:150px;height:150px" class="img-circle"></a>
+            </div>
+            <div class="col-md-10 col-sm-9">
+              <h3>{{adv.getAdviseName()}}</h3>
+              <div class="row">
+                <div class="col-xs-9">
+                  <p>{{adv.getHeadSection()}}</p>
+                  <p class="lead"><a href="{{path('mhamed_cecilia_advise_article',{'id':adv.getID()})}}" class="btn btn-default">Read More</a></p>
+                  <p class="pull-right"><span class="label label-default">{{adv.getTopic()}}</span></p>
+                  </div>
+                <div class="col-xs-3"></div>
+              </div>
+              <br><br>
+            </div>
+          </div>
+
+          <hr>
+              {% endfor %}    
+		  
+          <!--/stories-->
+          
+          
+          <a href="" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a>
+        
+          
+        </div>
+      </div>
+                                                                                       
+	                                                
+                                                      
+   	</div><!--/col-12-->
+  </div>
+</div>
+
+
+
+
+
+
+	<div class="container">
+	<!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Box 4006 S-141 04 HUDDINGE Sweden</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+<script src="{{asset('bundles/mhamedCecilia/javascript/jquery-1.11.2.min.js')}}"></script>
+<script src="{{asset('bundles/mhamedCecilia/javascript/bootstrap.min.js')}}"></script>
+
+
+</body>
+
+</html>

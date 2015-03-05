@@ -1,0 +1,138 @@
+  /**** navbar style ****/ 
+.navbar-inverse .navbar-brand{
+    font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
+    color: #fed136;
+}
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus,
+.navbar-inverse .navbar-brand:active,
+.navbar-inverse .navbar-brand.active {
+    color: #fec503;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: #fed136;
+    background-color: #fed136;
+}
+
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #fed136;
+}
+
+
+body {
+ /*padding-top: 100px; 
+ padding-bottom: 70px;*/
+ padding-top: 50px;
+ background-image: url("{{asset('bundles/mhamedplatform/images/black2.jpg')}}");
+ background-repeat:no-repeat;
+ display: compact;
+ background-size: 1440px 800px;
+ }
+ footer{
+     color:white;
+ }
+#inner{
+border-width: 0px;
+background-color: rgba(0,0,0,0.0);
+    
+}
+#innerfoot{
+border-width: 0px;
+background-color: rgba(0,0,0,0.0);
+margin-top:15%;
+}
+
+ #logo{
+ padding-top:15px;
+ }
+ #quiz{
+ width:50px;
+ }
+ #sante{
+  width:50px;
+ } 
+ #conseil{
+ width:50px;
+ }
+ #meeting{
+  width:50px;
+ }
+ #contact{
+ width:50px;
+ }
+ #visit{
+ width:50px;
+ }
+/*#headnav{
+background-color:#43BFC7;
+}*/
+#help{
+color: #000;
+ text-decoration: none;
+}
+#pseu{
+border-radius:15px;
+border:3px solid white;
+}
+#pass{
+border-radius:15px;
+border:3px solid white;
+}
+#dr_cecilia{
+width:1500px;
+height:700px
+padding-bottom:150px;
+}
+#coll{
+padding-left:5%;
+padding-top:1%;
+}
+#login{
+margin-top:10%;
+}
+#please{
+padding-left:2%;
+font-size:40px;
+color:white;
+}
+#pplease{
+font-size:20px;
+color:white;
+}
+#dr{
+font-size:20px;
+}
+#guest{
+color:#A52A2A;
+
+}
+#loginin{
+margin-top:2%;
+}
+#new{
+font-size:12px;
+margin-left:2%;
+color:white;
+}
+#btnlog{
+margin-left:20%;
+border-radius:15px;
+border:3px solid white;
+}
+@media screen and (max-width:750px){
+#website{
+background-color: white;
+}
+
+
+}

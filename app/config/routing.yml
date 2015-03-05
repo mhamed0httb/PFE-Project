@@ -1,0 +1,4 @@
+mhamed_cecilia:
+    resource: "@MhamedCeciliaBundle/Resources/config/routing.yml"
+    prefix:   /
+

@@ -1,0 +1,4 @@
+services:
+#    mhamed_cecilia.example:
+#        class: Mhamed\CeciliaBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

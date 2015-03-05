@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<link rel="icon" href="images/logo.jpg">
+	<!-- fonts -->
+    <link href="{{asset('bundles/mhamedplatform/css/family=Kaushan+Script.css')}}" rel='stylesheet' type='text/css'>
+    <link href="{{asset('bundles/mhamedplatform/css/family=Montserrat.css')}}" rel="stylesheet" type="text/css">
+
+
+
+    <title>Dr Cecilia</title>
+	
+    <link rel="stylesheet" href="{{asset('bundles/mhamedplatform/css/bootstrap.min.css')}}">
+	<link href="{{asset('bundles/mhamedplatform/css/login stylesheet.css')}}" rel="stylesheet">
+
+
+    <style>
+        body{
+            background-image: url("{{asset('bundles/mhamedplatform/images/black2.jpg')}}");
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                
+                <a class="navbar-brand" href="http://localhost/projects/OC%20Tutorial/web/homepage" id="ddr">Dr. Cecilia</a>
+            </div>
+            
+        </div>
+        <!-- /.container -->
+    </nav>
+	
+	
+	
+<div class="row">
+        <div class="col-sm-12" id="coll">
+            <div class="container"  id="login">
+                <p><em id="dr">Dr.Cecilia </em> <strong id="please">  Hello, please login below ! </strong></p>
+                <p id="pplease"><em><strong></strong></em></p>
+            </div>
+            <form class="form-horizontal" id="loginin">
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-4">
+                        <input type="text" class="form-control"  placeholder="Pseudo" id="pseu"></input>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-4">
+                        <input type="password" class="form-control" placeholder="Password" id="pass">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-5">
+	                    <a href="#" id="new">New account</a>
+	                    <a href="#" id="new">Forgot password</a>
+  	                    <button type="submit" class="btn btn-default" id="btnlog">Login</button>
+                    </div>
+                </div>
+            </form>
+			
+        </div>
+        
+    </div>
+	
+	
+	
+	<div class="container">
+	<!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12 navbar-fixed-bottom">
+                    <p>Copyright &copy; Box 4006 S-141 04 HUDDINGE Sweden</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+	
+	
+	<script src="{{asset('bundles/mhamedplatform/javascript/jquery-1.11.2.min.js')}}"></script>
+    <script src="{{asset('bundles/mhamedplatform/javascript/bootstrap.min.js')}}"></script>
+</body>
+
+</html>
