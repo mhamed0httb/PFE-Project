@@ -1,0 +1,152 @@
+{# src/OC/UserBundle/Resources/views/Security/login.html.twig #}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  <link rel="icon" href="{{asset('bundles/ocuser/images/logo.jpg')}}">
+  <!-- fonts -->
+    <link href="{{asset('bundles/ocuser/css/family=Kaushan+Script.css')}}" rel='stylesheet' type='text/css'>
+    <link href="{{asset('bundles/ocuser/css/family=Montserrat.css')}}" rel="stylesheet" type="text/css">
+
+
+  
+
+    <title>Dr Cecilia</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="{{asset('bundles/ocuser/css/bootstrap.min.css')}}">
+
+    <!-- Custom CSS -->
+
+    <style>
+    .navbar-inverse .navbar-brand{
+    font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
+    color: #fed136;
+}
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus,
+.navbar-inverse .navbar-brand:active,
+.navbar-inverse .navbar-brand.active {
+    color: #fec503;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: #fed136;
+    background-color: #fed136;
+}
+
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #fed136;
+}
+body {
+  padding-top:100px;
+}
+    </style>
+
+
+
+  
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{path('mhamed_cecilia_homepage')}}" id="ddr">Dr. Cecilia</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav pull-right">
+          <li>
+                        <a href="#" id="navbarQA">Q&A</a>
+                    </li>
+          <li>
+                        <a href="#" id="navbarAppointment">take appointment</a>
+                    </li>
+          <li>
+                        <a href="#" id="navbarQuiz">quiz</a>
+                    </li>
+          <li>
+                        <a href="#" id="navbarTest">test</a>
+                    </li>
+          <li>
+                        <a href="#" id="navbarAdvise">advise</a>
+                    </li>
+                    <li>
+                        <a href="#"id="navbarContact">Contact</a>
+                    </li>
+          <li>
+                        <a href="" id="navbarLogin">Log in</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+<div class="container">
+  {# S'il y a une erreur, on l'affiche dans un joli cadre #}
+  {% if error %}
+    <div class="alert alert-danger">{{ error.message }}</div>
+  {% endif %}
+
+  {# Le formulaire, avec URL de soumission vers la route « login_check » comme on l'a vu #}
+  <form action="{{ path('login_check') }}" method="post">
+    <label for="username">Login :</label>
+    <input type="text" id="username" name="_username" value="{{ last_username }}" />
+    <br />
+
+    <label for="password">Mot de passe :</label>
+    <input type="password" id="password" name="_password" />
+    <br />
+    <input type="submit" value="Connexion" />
+  </form>
+</div>
+
+
+
+  <div class="container">
+  <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Box 4006 S-141 04 HUDDINGE Sweden</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+<script src="{{asset('bundles/ocuser/javascript/jquery-1.11.2.min.js')}}"></script>
+<script src="{{asset('bundles/ocuser/javascript/bootstrap.min.js')}}"></script>
+
+
+
+</body>
+
+</html>

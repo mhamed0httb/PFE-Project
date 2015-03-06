@@ -27,8 +27,8 @@ class MainController extends Controller
 	public function addAction(){
 
 		$adv = new Advise();
-		$adv->setAdviseName('test git command');
-		$adv->setHeadSection('hoooo');
+		$adv->setAdviseName('');
+		$adv->setHeadSection('');
 		$adv->setMainSection('');
 		$adv->setTopic('');
 		$adv->setImage('');
