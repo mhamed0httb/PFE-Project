@@ -6,6 +6,7 @@ namespace OC\UserBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\SecurityContext;
+use OC\UserBundle\Entity\User;
 
 class SecurityController extends Controller
 {
@@ -31,5 +32,21 @@ class SecurityController extends Controller
       'last_username' => $session->get(SecurityContext::LAST_USERNAME),
       'error'         => $error,
     ));
+  }
+
+
+  public function adduserAction(){
+    $userr = new User();
+    $userr->setUsername('doctor');
+    $userr->setFirstname('Doctor');
+    $userr->setLastname('Cecilia');
+    $userr->setEmail('info@Cecilia.com');
+    $userr->setPassword('20334324');
+    $userr->setSalt('');
+    $userr->setRoles(array('ROLE_ADMIN'));
+    $em=$this->getDoctrine()->getManager();
+    $em->persist($userr);
+    $em->flush();
+    return $this->render('OCUserBundle:Security:adduser.html.twig',array('uss'=>$userr));
   }
 }

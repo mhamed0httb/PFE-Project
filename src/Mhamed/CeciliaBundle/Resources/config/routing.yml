@@ -1,16 +1,16 @@
 mhamed_cecilia_homepage:
-    path:     /homepage
+    path:     /
     defaults: { _controller: MhamedCeciliaBundle:Main:home }
 
 
 mhamed_cecilia_test:
-    path:     /homepage/test
+    path:     /tests
     defaults: { _controller: MhamedCeciliaBundle:Main:test }
 
 
 
 mhamed_cecilia_quiz:
-    path:     /homepage/quiz/{id}
+    path:     /quiz/{id}
     defaults: { _controller: MhamedCeciliaBundle:Main:showQuiz }
     requirements: 
         id: \d+
@@ -19,25 +19,26 @@ mhamed_cecilia_quiz:
 
 
 mhamed_cecilia_appointment:
-    path:     /homepage/appointment
+    path:     /appointment
     defaults: { _controller: MhamedCeciliaBundle:Main:appointment }
 
 
 
 mhamed_cecilia_advise_article:
-    path:     /homepage/advise/{id}
+    path:     /advise/{id}
     defaults: { _controller: MhamedCeciliaBundle:Main:showAdvise }
     requirements: 
         id: \d+
 
 
 mhamed_cecilia_advises :
-    path: /homepage/advise
+    path: /advise
     defaults: { _controller: MhamedCeciliaBundle:Main:advises }
 
 
 
 mhamed_cecilia_QA:
-    path:     /homepage/QA
+    path:     /QA
     defaults: { _controller: MhamedCeciliaBundle:Main:QA }
+
 
