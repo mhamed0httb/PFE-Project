@@ -55,10 +55,12 @@ text-transform: uppercase;
 .navbar-inverse .navbar-toggle:focus {
     background-color: #fed136;
 }
-.error-template {padding: 40px 15px;text-align: center;}
+#loog{
+            font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
+         }
+         .error-template {padding: 40px 15px;text-align: center;}
 .error-actions {margin-top:15px;margin-bottom:15px;}
 .error-actions .btn { margin-right:10px; }
-
    </style>
 
   
@@ -82,14 +84,13 @@ text-transform: uppercase;
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav pull-right">
-                    <!--<li>
-                        <a href="#about">About</a>
-                    </li>
-                    <li>
-                        <a href="#services">Services</a>
-                    </li>-->
 					<li>
-                        <a href="" id="navbarLogin">Log in</a>
+                        <a href="#" id="navbarUser" data-toggle="dropdown">{{app.user.firstname}} <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#" id="loog">Profile</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{{path('logout')}}" id="loog">Logout</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -97,6 +98,7 @@ text-transform: uppercase;
         </div>
         <!-- /.container -->
     </nav>
+
 
 
 <div class="container">

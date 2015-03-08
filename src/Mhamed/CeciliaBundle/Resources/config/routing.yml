@@ -4,7 +4,7 @@ mhamed_cecilia_homepage:
 
 
 mhamed_cecilia_test:
-    path:     /tests
+    path:     /test
     defaults: { _controller: MhamedCeciliaBundle:Main:test }
 
 

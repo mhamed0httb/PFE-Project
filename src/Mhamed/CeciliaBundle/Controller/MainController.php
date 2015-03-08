@@ -15,7 +15,13 @@ class MainController extends Controller
 {
 
 	public function homeAction(){
-		return $this->render('MhamedCeciliaBundle:Main:homepage.html.twig');
+		$user=$this->getUser();
+		if(null===$user){
+			return $this->render('MhamedCeciliaBundle:Main:homepage.html.twig');
+		}else{
+			return $this->render('MhamedCeciliaBundle:Main:homepage user.html.twig');
+		}
+		
 	}
 
 
@@ -40,13 +46,26 @@ class MainController extends Controller
 
 
 	public function showAdviseAction($id){
+		$user=$this->getUser();
+		if(null===$user){
+			$rep = $this->getDoctrine()->getManager()->getRepository('MhamedCeciliaBundle:Advise');
+		$adv = $rep->find($id);
+        if (null === $adv) {
+          return $this->render('MhamedCeciliaBundle:Main:advise not found.html.twig',array('id'=>$id));
+    }
+		return $this->render('MhamedCeciliaBundle:Main:conseil article page.html.twig',array('theAdvise'=>$adv));
+
+		}else{
+
+
 
 		$rep = $this->getDoctrine()->getManager()->getRepository('MhamedCeciliaBundle:Advise');
 		$adv = $rep->find($id);
         if (null === $adv) {
-          return $this->render('MhamedCeciliaBundle:Main:advise not found.html.twig');
+          return $this->render('MhamedCeciliaBundle:Main:advise not found user.html.twig',array('id'=>$id));
     }
-		return $this->render('MhamedCeciliaBundle:Main:conseil article page.html.twig',array('theAdvise'=>$adv));
+		return $this->render('MhamedCeciliaBundle:Main:conseil article user page.html.twig',array('theAdvise'=>$adv));
+	}
 	}
 
 
