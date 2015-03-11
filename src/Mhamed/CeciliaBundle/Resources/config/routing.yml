@@ -17,7 +17,6 @@ mhamed_cecilia_quiz:
 
 
 
-
 mhamed_cecilia_appointment:
     path:     /appointment
     defaults: { _controller: MhamedCeciliaBundle:Main:appointment }
@@ -39,6 +38,6 @@ mhamed_cecilia_advises :
 
 mhamed_cecilia_QA:
     path:     /QA
-    defaults: { _controller: MhamedCeciliaBundle:Main:QA }
+    defaults: { _controller: MhamedCeciliaBundle:Main:Qa }
 
 

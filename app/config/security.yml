@@ -29,18 +29,6 @@ security:
             anonymous: true
 
         main:
-            pattern:   ^/test
-            anonymous: false
-            provider:  main
-            form_login:
-                login_path: login
-                check_path: login_check
-            logout:
-                path:   logout
-                target: /
-            context: primary_auth
-
-        main_second:
             pattern:   ^/
             anonymous: true
             provider:  main
@@ -50,7 +38,19 @@ security:
             logout:
                 path:   logout
                 target: /
-            context: primary_auth
+            #context: primary_auth
+
+        #main_second:
+           # pattern:   ^/
+            #anonymous: true
+            #provider:  main
+            #form_login:
+                #login_path: login
+                #check_path: login_check
+            #logout:
+                #path:   logout
+                #target: /
+            #context: primary_auth
         
     access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }

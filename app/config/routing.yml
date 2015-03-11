@@ -8,7 +8,7 @@ login:
     defaults:  { _controller: OCUserBundle:Security:login }
 
 login_check:
-    pattern:   /test/login_check
+    pattern:   /login_check
 
 logout:
     pattern:   /logout
