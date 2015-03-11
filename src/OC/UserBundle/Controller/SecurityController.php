@@ -37,12 +37,12 @@ class SecurityController extends Controller
 
   public function adduserAction(){
     $userr = new User();
-    $userr->setUsername('feiruz');
-    $userr->setFirstname('Fayrouz');
-    $userr->setLastname('Kaabi');
-    $userr->setEmail('fayrouz_kaabi@yahoo.fr');
-    $userr->setPassword('backtoblack');
-    $userr->setPhone('24358406');
+    $userr->setUsername('Maria');
+    $userr->setFirstname('Maryam');
+    $userr->setLastname('Nagati');
+    $userr->setEmail('maryam.nagati@gmail.com');
+    $userr->setPassword('nagati94');
+    $userr->setPhone('54401748');
     $userr->setSalt('');
     $userr->setRoles(array('ROLE_USER'));
     $em=$this->getDoctrine()->getManager();
