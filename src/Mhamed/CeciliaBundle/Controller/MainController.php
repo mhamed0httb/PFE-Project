@@ -118,9 +118,7 @@ class MainController extends Controller
     // (Nous verrons la validation des objets en détail dans le prochain chapitre)
     if ($form->isValid()) {
 
-      $em = $this->getDoctrine()->getManager();
-      $em->persist($con);
-      $em->flush();
+     
 
       $url=$this->get('router')->generate('mhamed_cecilia_homepage');
       return new RedirectResponse($url);

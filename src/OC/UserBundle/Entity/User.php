@@ -51,11 +51,32 @@ class User implements UserInterface
     private $email;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=100)
+     */
+    private $image;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="gender", type="string", length=20)
+     */
+    private $gender;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="phone", type="integer")
      */
     private $phone;
+
+    /**
+     * @var date
+     *
+     * @ORM\Column(name="birthday", type="date")
+     */
+    private $birthday;
 
     /**
      * @var string
@@ -276,5 +297,74 @@ class User implements UserInterface
     public function getRoles()
     {
         return $this->roles;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     * @return User
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string 
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set gender
+     *
+     * @param string $gender
+     * @return User
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+
+        return $this;
+    }
+
+    /**
+     * Get gender
+     *
+     * @return string 
+     */
+    public function getGender()
+    {
+        return $this->gender;
+    }
+
+    /**
+     * Set birthday
+     *
+     * @param date $birthday
+     * @return User
+     */
+    public function setBirthday($birthday)
+    {
+        $this->birthday = $birthday;
+
+        return $this;
+    }
+
+    /**
+     * Get birthday
+     *
+     * @return date 
+     */
+    public function getBirthday()
+    {
+        return $this->birthday;
     }
 }
