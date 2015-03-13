@@ -16,14 +16,76 @@ use Mhamed\CeciliaBundle\Entity\Contact;
 class MainController extends Controller
 {
 
-	public function homeAction(){
+	public function homeAction(Request $request){
+		
+
 		$user=$this->getUser();
 		if(null===$user){
-			return $this->render('MhamedCeciliaBundle:Main:homepage.html.twig');
+			$con = new Contact();
+    
+
+            $formBuilder = $this->get('form.factory')->createBuilder('form', $con);
+            $formBuilder
+               ->add('name',      'text',array('attr' => array('class'=>'form-control','placeholder'=>'Your Name *','id'=>'name')))
+               ->add('phone',   'number',array('attr' => array('class'=>'form-control','placeholder'=>'Your Phone *','id'=>'phone')))
+               ->add('email',    'email',array('attr' => array('class'=>'form-control','placeholder'=>'Your Email *','id'=>'email')))
+               ->add('message',    'textarea',array('attr' => array('class'=>'form-control','placeholder'=>'Your Message *','id'=>'message')))
+               ->add('Send',      'submit',array('attr' => array('class'=>'btn btn-xl')))
+             ;
+
+            $form = $formBuilder->getForm();
+
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+            	$con->setUserId(null);
+			    $em = $this->getDoctrine()->getManager();
+                $em->persist($con);
+                $em->flush();
+                $this->get('session')->getFlashBag()->add('notice','haaaaaaa hooooooo');
+                $url=$this->get('router')->generate('mhamed_cecilia_homepage');
+                return new RedirectResponse($url);
+            }
+
+            return $this->render('MhamedCeciliaBundle:Main:homepage.html.twig', array('form' => $form->createView()));
+
+
+
 		}else{
-			return $this->render('MhamedCeciliaBundle:Main:homepage user.html.twig');
+
+			$con = new Contact();
+    
+
+            $formBuilder = $this->get('form.factory')->createBuilder('form', $con);
+            $formBuilder
+               ->add('message',    'textarea',array('attr' => array('class'=>'form-control','placeholder'=>'Your Message *','id'=>'message')))
+               ->add('Send',      'submit',array('attr' => array('class'=>'btn btn-xl')))
+             ;
+
+            $form = $formBuilder->getForm();
+
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+            $con->setUserId($user->getId());
+			$con->setName($user->getFirstname());
+			$con->setEmail($user->getEmail());
+			$con->setPhone($user->getPhone());
+			$em = $this->getDoctrine()->getManager();
+            $em->persist($con);
+            $em->flush();
+            $this->get('session')->getFlashBag()->add('notice','haaaaaaa hooooooo');
+            $url=$this->get('router')->generate('mhamed_cecilia_homepage');
+            return new RedirectResponse($url);
+
+        }
+
+        return $this->render('MhamedCeciliaBundle:Main:homepage user.html.twig', array('form' => $form->createView()));
+
+
 		}
-		
+	
+
 	}
 
 
@@ -91,8 +153,23 @@ class MainController extends Controller
 
 
 	public function QaAction(Request $request){
+
+		$userr=$this->getUser();
+		if(null===$userr){
+			$hiide='none';
+			$hiide2='block';
+
+		}else{
+			$hiide='block';
+			$hiide2='none';
+
+		}
+
+
+
 		// On crée un objet Advert
     $con = new Contact();
+    
 
     // On crée le FormBuilder grâce au service form factory
     $formBuilder = $this->get('form.factory')->createBuilder('form', $con);
@@ -100,7 +177,7 @@ class MainController extends Controller
     // On ajoute les champs de l'entité que l'on veut à notre formulaire
     $formBuilder
       ->add('name',      'text',array('attr' => array('class'=>'form-control','placeholder'=>'Your Name *','id'=>'name')))
-      ->add('phone',   'number',array('attr' => array('class'=>'form-control','placeholder'=>'Your Phone *','id'=>'phone','data-validation-required-message'=>'Please enter your phone number.')))
+      ->add('phone',   'number',array('attr' => array('class'=>'form-control','placeholder'=>'Your Phone *','id'=>'phone')))
       ->add('email',    'email',array('attr' => array('class'=>'form-control','placeholder'=>'Your Email *','id'=>'email')))
       ->add('message',    'textarea',array('attr' => array('class'=>'form-control','placeholder'=>'Your Message *','id'=>'message')))
       ->add('Send',      'submit',array('attr' => array('class'=>'btn btn-xl')))
@@ -112,28 +189,60 @@ class MainController extends Controller
 
 
 
+
     $form->handleRequest($request);
 
     // On vérifie que les valeurs entrées sont correctes
     // (Nous verrons la validation des objets en détail dans le prochain chapitre)
-    if ($form->isValid()) {
+    if ($form->isSubmitted() && $form->isValid()) {
 
-     
+    	$user=$this->getUser();
+		if(null===$user){
+			
+			
+			$con->setUserId(null);
+			$em = $this->getDoctrine()->getManager();
+            $em->persist($con);
+            $em->flush();
+            $this->get('session')->getFlashBag()->add('notice','haaaaaaa hooooooo');
+            
+            
+		}else{
+			$con->setUserId($user->getId());
+			$con->setName($user->getFirstname());
+			$con->setEmail($user->getEmail());
+			$con->setPhone($user->getPhone());
+			$em = $this->getDoctrine()->getManager();
+            $em->persist($con);
+            $em->flush();
+            $this->get('session')->getFlashBag()->add('notice','haaaaaaa hooooooo');
+            
+		}
 
-      $url=$this->get('router')->generate('mhamed_cecilia_homepage');
-      return new RedirectResponse($url);
+          $url=$this->get('router')->generate('mhamed_cecilia_QA');
+          return new RedirectResponse($url);
+
+    	}
 
 
-    }
+      //$url=$this->get('router')->generate('mhamed_cecilia_homepage');
+      //return new RedirectResponse($url);
+
+
+    
 
     // À ce stade, le formulaire n'est pas valide car :
     // - Soit la requête est de type GET, donc le visiteur vient d'arriver sur la page et veut voir le formulaire
     // - Soit la requête est de type POST, mais le formulaire contient des valeurs invalides, donc on l'affiche de nouveau
     return $this->render('MhamedCeciliaBundle:Main:adduser.html.twig', array(
-      'form' => $form->createView(),
+      'form' => $form->createView(),'hiide'=>$hiide,'hiide2'=>$hiide2
     ));
 
+
+
 	}
+
+
 	public function modalAction(){
 		return $this->render('MhamedCeciliaBundle:Main:modal.html.twig');
 

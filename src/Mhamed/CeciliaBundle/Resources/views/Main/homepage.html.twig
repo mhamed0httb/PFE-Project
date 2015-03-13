@@ -175,8 +175,8 @@
     <!-- /.container -->
 	
 	
-	<!-- Section contact -->
-	<section id="contact">
+    <!-- Section contact -->
+    <section id="contact">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -186,39 +186,49 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <form name="sentMessage" id="contactForm" novalidate>
+                    {{ form_start(form, {'attr': {'id': 'contactForm'}}) }}
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
+                                    {{ form_errors(form.name) }}
+                                    {{ form_widget(form.name) }}
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
+                                    {{ form_errors(form.email) }}
+                                    {{ form_widget(form.email) }}
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                    {{ form_errors(form.phone) }}
+                                    {{ form_widget(form.phone) }}
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                    {{ form_errors(form.message) }}
+                                    {{ form_widget(form.message) }}
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="clearfix"></div>
                             <div class="col-lg-12 text-center">
                                 <div id="success"></div>
-                                <button type="submit" class="btn btn-xl">Send Message</button>
+                                {{ form_widget(form.Send, { 'label': 'Send Message' }) }}
                             </div>
                         </div>
-                    </form>
+                    {{ form_end(form) }}
                 </div>
             </div>
         </div>
     </section>
+    
+{% if app.session.flashbag.get('notice') %}
+    <div class="flash notice">
+        {{ render(controller('MhamedCeciliaBundle:Main:modal')) }}
+    </div>
+{% endif %}
 	
 	
 	<div class="container">

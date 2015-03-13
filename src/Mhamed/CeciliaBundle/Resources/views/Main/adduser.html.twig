@@ -8,7 +8,7 @@
     <meta name="author" content="">
 	<link rel="icon" href="{{asset('bundles/mhamedCecilia/images/logo.jpg')}}">
 
-<link href="{{asset('bundles/mhamedCecilia/css/family=Kaushan+Script.css')}}" rel='stylesheet' type='text/css'>
+    <link href="{{asset('bundles/mhamedCecilia/css/family=Kaushan+Script.css')}}" rel='stylesheet' type='text/css'>
     <link href="{{asset('bundles/mhamedCecilia/css/family=Montserrat.css')}}" rel="stylesheet" type="text/css">
 
     <link rel="stylesheet" href="{{asset('bundles/mhamedCecilia/css/bootstrap.min.css')}}">
@@ -25,10 +25,67 @@
     body{
     	padding-top: 50px;
     }
+
+         #loog{
+            font-family: "Kaushan Script","Helvetica Neue",Helvetica,Arial,cursive;
+         }
+         #ohiide{
+            display: {{hiide}};
+
+         }
+         #ohiide2{
+            display: {{hiide2}};
+
+         }
     </style>
 
 </head>
 <body>
+
+   
+
+
+
+<!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="" id="ddr">Dr. Cecilia</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav pull-right">
+                    <li id="ohiide">
+                        <a href="#" id="navbarUser" data-toggle="dropdown"><img class="img-rounded" style="width:25px;height:25px" src="{{asset('bundles/mhamedCecilia/images/'~ app.user.image ~'')}}"/> {{app.user.firstname}} <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#" id="loog">Profile</a></li>
+                            <li class="divider"></li>
+                            <li><a href="{{path('logout')}}" id="loog">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li id="ohiide2">
+                        <a href="">Log in</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+
+
+
+
+
+
 	
 
 
@@ -73,7 +130,7 @@
                             <div class="clearfix"></div>
                             <div class="col-lg-12 text-center">
                                 <div id="success"></div>
-                                {{ form_widget(form.Send) }}
+                                {{ form_widget(form.Send, { 'label': 'Send Message' }) }}
                             </div>
                         </div>
                     {{ form_end(form) }}
@@ -81,11 +138,12 @@
             </div>
         </div>
     </section>
-
-{% if form.vars.valid %}
-{{ render(controller('MhamedCeciliaBundle:Main:modal')) }} 
+    
+{% if app.session.flashbag.get('notice') %}
+    <div class="flash notice">
+        {{ render(controller('MhamedCeciliaBundle:Main:modal')) }}
+    </div>
 {% endif %}
-
 
 
 
